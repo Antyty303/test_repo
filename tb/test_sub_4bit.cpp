@@ -1,24 +1,24 @@
 #include <iostream>
 #include <cassert>
 #include <memory>
-#include "Vadder_4bit.h"  
+#include "Vsub_4bit.h"  
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
 int main(int argc, char** argv) {
-    Verilated::someArgs(argc, argv);
+    Verilated::commandArgs(argc, argv);
     Verilated::traceEverOn(true);
 
-    auto top = std::make_unique<Vadder_4bit>();
+    auto top = std::make_unique<Vsub_4bit>();
     auto tfp = std::make_unique<VerilatedVcdC>();
 
     top->trace(tfp.get(), 99);
     
-    tfp->open("waveform_adder.vcd");
+    tfp->open("waveform_sub.vcd");
     uint64_t sim_time = 0;
     int error_count = 0;
 
-    std::cout << " Запуск Verilator теста для adder_4bit" << std::endl;
+    std::cout << " Запуск Verilator теста для sub_4bit" << std::endl;
 
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 16; j++) {
@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     tfp->close();
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "Тест для adder_4bit завершён. Обнаружено ошибок: " << error_count << std::endl;
+    std::cout << "Тест для sub_4bit завершён. Обнаружено ошибок: " << error_count << std::endl;
     std::cout << "=====================================================" << std::endl;
 
     return (error_count == 0) ? 0 : 1;

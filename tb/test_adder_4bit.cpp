@@ -6,7 +6,7 @@
 #include "verilated_vcd_c.h"
 
 int main(int argc, char** argv) {
-    Verilated::someArgs(argc, argv);
+    Verilated::commandArgs(argc, argv);
     Verilated::traceEverOn(true);
 
     auto top = std::make_unique<Vadder_4bit>();
@@ -19,7 +19,8 @@ int main(int argc, char** argv) {
     int error_count = 0;
 
     std::cout << " Запуск Verilator теста для adder_4bit" << std::endl;
-
+    
+    top->cin = 0;
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 16; j++) {
             top->A = i;
