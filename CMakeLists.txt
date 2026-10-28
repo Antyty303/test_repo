@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 project(lab1_verilator_tests LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -16,7 +16,6 @@ verilate(Vadder_4bit
 )
 add_executable(test_adder_4bit tb/test_adder_4bit.cpp)
 target_link_libraries(test_adder_4bit PRIVATE Vadder_4bit)
-
 
 verilate(Vsub_4bit
     SOURCES src/arithmetic_blocks.sv
