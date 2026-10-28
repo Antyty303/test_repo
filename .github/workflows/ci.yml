@@ -13,18 +13,22 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with: 
+	submodules: recursive
 
     - name: Install Verilator and compiler
       run: |
         sudo apt-get update
-        sudo apt-get install -y verilator g++ make
+        sudo apt-get install -y verilator g++ cmake make
 
-    - name: Build and Run Adder 4-bit Test
-      run: |
-        verilator --cc --exe --build -j -Wno-WIDTH --trace tb/test_adder_4bit.cpp src/arithmetic_blocks.sv --top-module adder_4bit
-        ./obj_dir/Vadder_4bit
+    - name: Configure CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Release
 
-    - name: Build and Run Subtractor 4-bit Test
+    - name: Build All Tests
+      run: cmake --build build -j $(nproc)
+
+    - name: Run Tests
       run: |
-        verilator --cc --exe --build -j -Wno-WIDTH --trace tb/test_sub_4bit.cpp src/arithmetic_blocks.sv --top-module sub_4bit
-        ./obj_dir/Vsub_4bit
+        ./build/test_adder_4bit
+        ./build/test_sub_4bit
+        ./build/test_seq_arith
