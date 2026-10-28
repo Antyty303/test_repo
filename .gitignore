@@ -1,0 +1,13 @@
+# Резервные копии Quartus и текстовых редакторов
+*.bak
+
+# Служебные папки Quartus (содержат логи, результаты компиляции и базы данных)
+db/
+incremental_db/
+output_files/
+simulation/
+
+# Внутренние файлы окружения Quartus
+*.qws
+*.rpt
+qar_info.json
