@@ -26,5 +26,5 @@ jobs:
 
     - name: Build and Run Subtractor 4-bit Test
       run: |
-        verilator --cc --exe --build -j -Wno-WIDTH --trace tb/test_subtractor_4bit.cpp src/arithmetic_blocks.sv --top-module sub_4bit
+        verilator --cc --exe --build -j -Wno-WIDTH --trace tb/test_sub_4bit.cpp src/arithmetic_blocks.sv --top-module sub_4bit
         ./obj_dir/Vsub_4bit
