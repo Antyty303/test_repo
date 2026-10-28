@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     uint64_t sim_time = 0;
     int error_count = 0;
 
-    std::cout << " Запуск Verilator теста для adder_4bit" << std::endl;
+    std::cout << " Running Verilator test for adder_4bit" << std::endl;
     
     top->cin = 0;
     for (int i = 0; i < 16; i++) {
@@ -33,10 +33,10 @@ int main(int argc, char** argv) {
             uint8_t reference_S = (i + j) & 0xF;
             if (top->S != reference_S) {
                 error_count++;
-                std::cerr << " ОШИБКА на шаге " << sim_time
+                std::cerr << " ERROR at step " << sim_time
                     << ": A = " << i << ", B = " << j
-                    << " | Получено S = " << (int)top->S
-                    << ", Ожидалось S = " << (int)reference_S << std::endl;
+                    << " | Received S = " << (int)top->S
+                    << ", Expected S = " << (int)reference_S << std::endl;
             }
         }
     }
@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
     tfp->close();
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "Тест для adder_4bit завершён. Обнаружено ошибок: " << error_count << std::endl;
+    std::cout << "The test for adder_4bit is completed. Errors detected: " << error_count << std::endl;
     std::cout << "=====================================================" << std::endl;
 
     return (error_count == 0) ? 0 : 1;
