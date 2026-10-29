@@ -31,4 +31,4 @@ jobs:
       run: |
         ./build/test_adder_4bit
         ./build/test_sub_4bit
-        ./build/test_seq_arith
+        ./build/test_seq
