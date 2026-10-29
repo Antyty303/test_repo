@@ -34,8 +34,6 @@ TEST(SequentialLogicTest, OperationCheck) {
         tick_clock();
 
         top->KEY |= (1 << button_idx);
-        tick_clock();
-
         tick_clock(); 
         };
 
@@ -51,20 +49,24 @@ TEST(SequentialLogicTest, OperationCheck) {
     top->SW = 9;
     std::cout << "[Step 1] Setting SW = " << (int)top->SW << ". Pressing KEY0 (Load A)." << std::endl;
     press_key(0);
-
+    tick_clock();
+    
     top->SW = 4;
     std::cout << "[Step 2] Setting SW = " << (int)top->SW << ". Pressing KEY1 (Load B)." << std::endl;
     press_key(1);
+    tick_clock();
     
     std::cout << "[Step 3] Pressing KEY2 (Addition)" << std::endl;
     press_key(2);
     std::cout << "         -> Current LEDG output = " << (int)top->LEDG << std::endl;
-
+    tick_clock();
+    
     EXPECT_EQ(top->LEDG, 13) << "ERROR: 9 + 4 should be 13";
 
     std::cout << "[Step 4] Pressing KEY3 (Subtraction)" << std::endl;
     press_key(3);
     std::cout << "         -> Current LEDG output = " << (int)top->LEDG << std::endl;
+    tick_clock();
     
     EXPECT_EQ(top->LEDG, 5) << "ERROR: 9 - 4 should be 5";
 
