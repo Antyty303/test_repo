@@ -32,9 +32,11 @@ TEST(SequentialLogicTest, OperationCheck) {
     auto press_key = [&](int button_idx) {
         top->KEY &= ~(1 << button_idx);
         tick_clock();
+        tick_clock();
 
         top->KEY |= (1 << button_idx);
         tick_clock(); 
+        tick_clock();
         };
 
     std::cout << "=====================================================" << std::endl;
