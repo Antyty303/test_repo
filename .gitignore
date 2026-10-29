@@ -11,3 +11,4 @@ qar_info.json
 
 *.vcd
 obj_dir/
+build/
