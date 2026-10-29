@@ -35,6 +35,8 @@ TEST(SequentialLogicTest, OperationCheck) {
 
         top->KEY |= (1 << button_idx);
         tick_clock();
+
+        tick_clock(); 
         };
 
     std::cout << "=====================================================" << std::endl;
