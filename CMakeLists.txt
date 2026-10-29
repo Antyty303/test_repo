@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 3.10) #
-project(lab1_verilator_tests LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+cmake_minimum_required(VERSION 3.20)
+project(lab1_verilator_tests)
 
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(3rdparty/gtest)
@@ -31,5 +28,5 @@ verilate(test_seq
     TOP_MODULE seq_top
     TRACE
 )
-t
+
 target_link_libraries(test_seq PRIVATE gtest gtest_main)
