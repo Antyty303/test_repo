@@ -70,6 +70,4 @@ TEST(SequentialLogicTest, OperationCheck) {
     std::cout << "=====================================================" << std::endl;
     std::cout << " Sequential logic test completed SUCCESSFULLY!" << std::endl;
     std::cout << "=====================================================" << std::endl;
-
-    return 0;
 }
