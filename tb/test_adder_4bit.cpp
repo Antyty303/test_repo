@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <memory>
-#include "test_adder_4bit.h"  
+#include "Varithmetic_blocks.h"  
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
     Verilated::traceEverOn(true);
 
-    auto top = std::make_unique<Vadder_4bit>();
+    auto top = std::make_unique<Varithmetic_blocks>();
     auto tfp = std::make_unique<VerilatedVcdC>();
 
     top->trace(tfp.get(), 99);
