@@ -12,7 +12,6 @@ verilate(test_adder_4bit
     TOP_MODULE adder_4bit
     TRACE
 )
-target_link_libraries(test_adder_4bit PRIVATE Vadder_4bit)
 
 add_executable(test_sub_4bit tb/test_sub_4bit.cpp)
 verilate(test_sub_4bit
@@ -20,7 +19,6 @@ verilate(test_sub_4bit
     TOP_MODULE sub_4bit
     TRACE
 )
-target_link_libraries(test_sub_4bit PRIVATE Vsub_4bit)
 
 add_executable(test_seq tb/test_seq.cpp)
 verilate(test_seq
