@@ -9,26 +9,23 @@ add_subdirectory(3rdparty/gtest)
 
 find_package(verilator REQUIRED)
 
-add_executable(test_adder_4bit tb/test_adder_4bit.cpp)
+add_executable(Vadder_4bit tb/test_adder_4bit.cpp)
 verilate(Vadder_4bit
     SOURCES src/arithmetic_blocks.sv
     TOP_MODULE adder_4bit
     TRACE
 )
-target_link_libraries(test_adder_4bit PRIVATE Vadder_4bit)
 
-add_executable(test_sub_4bit tb/test_sub_4bit.cpp)
+add_executable(Vsub_4bit tb/test_sub_4bit.cpp)
 verilate(Vsub_4bit
     SOURCES src/arithmetic_blocks.sv
     TOP_MODULE sub_4bit
     TRACE
 )
-target_link_libraries(test_sub_4bit PRIVATE Vsub_4bit)
 
-add_executable(test_seq tb/test_seq.cpp)
+add_executable(Vseq_top tb/test_seq.cpp)
 verilate(Vseq_top
     SOURCES src/seq_top.sv src/arithmetic_blocks.sv
     TOP_MODULE seq_top
     TRACE
 )
-target_link_libraries(test_seq PRIVATE Vseq_top)
