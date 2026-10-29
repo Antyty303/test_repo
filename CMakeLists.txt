@@ -15,8 +15,7 @@ verilate(test_adder_4bit
     TOP_MODULE adder_4bit
     TRACE
 )
-target_include_directories(test_adder_4bit PRIVATE ${VERILATOR_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-
+target_link_libraries(test_adder_4bit PRIVATE Vadder_4bit)
 
 add_executable(test_sub_4bit tb/test_sub_4bit.cpp)
 verilate(test_sub_4bit
@@ -24,8 +23,7 @@ verilate(test_sub_4bit
     TOP_MODULE sub_4bit
     TRACE
 )
-target_include_directories(test_sub_4bit PRIVATE ${VERILATOR_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-
+target_link_libraries(test_sub_4bit PRIVATE Vsub_4bit)
 
 add_executable(test_seq tb/test_seq.cpp)
 verilate(test_seq
@@ -33,7 +31,5 @@ verilate(test_seq
     TOP_MODULE seq_top
     TRACE
 )
-target_include_directories(test_seq PRIVATE ${VERILATOR_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-
-
+t
 target_link_libraries(test_seq PRIVATE gtest gtest_main)
