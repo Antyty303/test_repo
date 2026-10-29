@@ -24,12 +24,14 @@ module seq_top (
 	always_ff @(posedge clk) begin
 		// Запоминаем текущее состояние кнопок, чтобы сравнить его на следующем такте
 		key_r <= KEY; // Кнопка отпущена - сигнал 1, Кнопка нажата - 0.
-		
+	end
 		// если на прошлом такте кнопка была отпущена (1), а на текущем нажата (0) — значит произошло нажатие
 		assign key_pressed[0] = key_r[0] && !KEY[0];
 		assign key_pressed[1] = key_r[1] && !KEY[1];
 		assign key_pressed[2] = key_r[2] && !KEY[2];
 		assign key_pressed[3] = key_r[3] && !KEY[3];
+
+	always_ff @(posedge clk) begin	
 		if (key_pressed[0]) begin
 			A_reg <= SW;
 		end
