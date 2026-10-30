@@ -15,7 +15,7 @@ module seq_top (
 	logic [3:0] reg_sub_out;
 	logic       unused_cout, unused_bout;
 	
-	logic [3:0] key_r;
+	logic [3:0] key_r = 4'b1111;
    logic [3:0] key_pressed;
 
 	adder_4bit adder_for_regs (.A(A_reg), .B(B_reg), .cin(1'b0), .S(reg_sum_out), .cout(unused_cout));
